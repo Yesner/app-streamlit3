@@ -1,5 +1,4 @@
 streamlit>=1.14.0
 streamlit_embedcode
 textblob
-PIL
 pycaret==3.0
