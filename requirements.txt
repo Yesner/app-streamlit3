@@ -1,4 +1,4 @@
 streamlit>=1.14.0
 streamlit_embedcode
 textblob
-pycaret==1.0.0
+pycaret==3.0.0
