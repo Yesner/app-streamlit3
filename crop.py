@@ -28,6 +28,13 @@ image = Image.open("farmer_in_a_field.jpg")
 
 @st.cache(allow_output_mutation=True)
 
+def get_model():
+    return load_model('crop')
+
+def predict(model, df):
+    predictions = predict_model(model, data = df)
+    return predictions['Label'][0]
+
 def translation(texto):
     try:
         traducir = TextBlob(texto)
@@ -36,7 +43,7 @@ def translation(texto):
     except:
         return str(texto)
     
-model = load_model('crop')
+model = get_model()
 
 st.subheader("Do your prediction")
 
@@ -54,7 +61,7 @@ input_dict = {'N' : N, 'P' : P,
 input_df = pd.DataFrame([input_dict])
 
 if predict_button:
-    out = predict_model(model, data = input_df)
+    out = predict(model, input_df)
 
     st.success(f'The predicted crop is: {translation(out)}.')
     st.image(image)
