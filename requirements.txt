@@ -1,5 +1,5 @@
 streamlit>=1.14.0
 streamlit_embedcode
 textblob
-pycaret==2.3.10
+pycaret==3.0.0
 pandas<2.0.0
